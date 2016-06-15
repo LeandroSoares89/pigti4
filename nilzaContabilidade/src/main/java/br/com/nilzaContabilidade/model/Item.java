@@ -5,6 +5,10 @@ import java.util.Date;
 public class Item {
 	private Integer codigo;
 	
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+
 	private String nome;
 	
 	private String categoria;

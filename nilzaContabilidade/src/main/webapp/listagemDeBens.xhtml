@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/layout.xhtml">
+	<ui:define name="principal">
+		<h:dataTable value="#{ItemBean.lsItens}" var="objItem"
+			styleClass="tabelaItens" rowClasses="linhaPar, linhaImpar" headerClass="tbcabecalho" columnClasses="coluna, coluna, coluna,coluna,coluna, coluna, coluna, coluna">
+			<f:facet name="header">
+				<h:outputLabel value="Lista de Bens Cadastrados" />
+			</f:facet>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Código" />
+				</f:facet>
+				<h:outputText value="#{objItem.codigo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Nome Bem" />
+				</f:facet>
+				<h:outputText value="#{objItem.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Categoria" />
+				</f:facet>
+				<h:outputText value="#{objItem.categoria}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Vida Util" />
+				</f:facet>
+				<h:outputText value="#{objItem.vidaUtil}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Data da Compra" />
+				</f:facet>
+				<h:outputText value="#{objItem.dataCompra}" maxlength="10"
+					onkeypress="formatarData('##/##/####', this);">
+					<f:convertDateTime dateStyle="medium" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Valor da Compra" />
+				</f:facet>
+				<h:outputText value="#{objItem.valorCompra}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Condição" />
+				</f:facet>
+				<h:outputText value="#{objItem.condicao}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Tempo de Uso" />
+				</f:facet>
+				<h:outputText value="#{objItem.tempoUso}" />
+			</h:column>
+
+		</h:dataTable>
+	</ui:define>
+</ui:composition>
+</html>

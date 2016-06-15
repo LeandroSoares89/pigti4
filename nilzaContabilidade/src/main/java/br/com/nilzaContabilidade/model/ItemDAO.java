@@ -3,7 +3,10 @@ package br.com.nilzaContabilidade.model;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
+
 
 import br.com.nilzaContabilidade.util.ConnectionFactory;
 
@@ -51,8 +54,38 @@ public class ItemDAO extends ConnectionFactory implements InterfaceItensDAO{
 
 	@Override
 	public List<Item> selecItens() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Item> lsItens = null;
+		Connection conexao = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		String sql = "SELECT codigo, nome, categoria, condicao, vida_util, data_compra, valor_compra, tempo_uso "
+				+ " FROM  patrimonio  ORDER BY codigo";
+
+		try {
+			conexao = openConnection();
+			ps = conexao.prepareStatement(sql);
+			rs = ps.executeQuery();
+			lsItens = new ArrayList<Item>();
+			while (rs.next()) {
+				Item item = new Item();
+				item.setCodigo(rs.getInt("codigo"));
+				item.setNome(rs.getString("nome"));
+				item.setCategoria(rs.getString("categoria"));
+				item.setCondicao(rs.getString("condicao"));
+				item.setVidaUtil(rs.getInt("vida_util"));
+				item.setDataCompra(rs.getDate("data_compra"));
+				item.setValorCompra(rs.getDouble("valor_compra"));
+				item.setTempoUso(rs.getInt("tempo_uso"));
+				lsItens.add(item);
+			}
+		} catch (Exception e) {
+			System.err.println("Erro: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			closeConnection(conexao, ps, rs);
+		}
+		return lsItens;
 	}
 
 	@Override

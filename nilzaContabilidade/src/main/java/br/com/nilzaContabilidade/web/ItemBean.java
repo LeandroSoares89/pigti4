@@ -19,8 +19,15 @@ public class ItemBean {
 	public String actionSalvar(){
 		itemRN.insertBem(item);
 		return null;
-		
 	}
+		public String actionListarBens(){
+			if(lsItens == null)
+			lsItens = itemRN.selecItens();
+			return null;
+			
+		}
+		//getters e Setters	
+	
 	public ItemRN getItemRN() {
 		return itemRN;
 	}

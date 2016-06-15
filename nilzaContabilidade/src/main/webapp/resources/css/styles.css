@@ -22,3 +22,26 @@
 	height: 50px;
 	
 }
+/*formatação da tabela de listagem de bens cadastrados */
+.tabelaItens{
+	margin-left: -200px;
+	border: 1px solid;
+	border-collapse: collapse;
+}
+.linhaPar{
+	background-color: red;
+}
+.linhaImpar{
+	background-color:rgb( 255,128,128);
+}
+.tbcabecalho{
+	boder: 1px solid;
+	background-color: red;
+	padding: 5px;
+	
+	
+}
+.coluna{
+	text-align: center;
+	padding: 5px;
+}
