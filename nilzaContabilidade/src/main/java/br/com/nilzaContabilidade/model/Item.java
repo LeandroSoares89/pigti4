@@ -2,7 +2,7 @@ package br.com.nilzaContabilidade.model;
 
 import java.util.Date;
 
-public class Itens {
+public class Item {
 	private Integer codigo;
 	
 	private String nome;
