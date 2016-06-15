@@ -14,7 +14,13 @@ public class ItemBean {
 	private ItemRN itemRN = new ItemRN();
 	private Item item = new Item();
 	private List<Item> lsItens = null;
-
+	
+	
+	public String actionSalvar(){
+		itemRN.insertBem(item);
+		return null;
+		
+	}
 	public ItemRN getItemRN() {
 		return itemRN;
 	}

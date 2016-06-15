@@ -6,7 +6,48 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<h:head>
-<h:outputScript library="js" name="formatar.js"></h:outputScript>
-</h:head>
+<ui:composition template="/templates/layout.xhtml">
+	<ui:define name="principal">
+
+		<h:panelGrid columns="2">
+		<f:facet name="header">
+		<h:outputText value="Cadastro de Bens"/>
+		</f:facet>
+			<h:outputText value="Bem" />
+			<h:inputText value="#{ItemBean.item.nome}" />
+			<h:outputText value="Categoria" />
+			<h:selectOneMenu value="#{ItemBean.item.categoria}">
+				<f:selectItem itemValue="Veiculo" itemLabel="Veiculo" />
+				<f:selectItem itemValue="Imovel" itemLabel="Imovel" />
+				<f:selectItem itemValue="Equipamento" itemLabel="Equipamento" />
+				<f:selectItem itemValue="Movel e Utensílio"
+					itemLabel="Movel e Utensílio" />
+				<f:selectItem itemValue="Outros" itemLabel="Outros" />
+			</h:selectOneMenu>
+		</h:panelGrid>
+		<h:panelGrid columns="3">
+			<h:outputText value="Vida Util" />
+			<h:inputText value="#{ItemBean.item.vidaUtil}" />
+			<h:outputText value="anos" />
+		</h:panelGrid>
+		<h:panelGrid columns="2">
+			<h:outputText value="Data da Compra" />
+			<h:inputText value="#{ItemBean.item.dataCompra}" maxlength="10"
+				onkeypress="formatarData('##/##/####', this);">
+				<f:convertDateTime dateStyle="medium" />
+			</h:inputText>
+			<h:outputText value="Valor da Compra" />
+			<h:inputText value="#{ItemBean.item.valorCompra}" />
+			<h:outputText value="Condições do Bem" />
+			<h:selectOneRadio value="#{ItemBean.item.condicao}">
+				<f:selectItem itemLabel="Novo" itemValue="Novo" />
+				<f:selectItem itemLabel="Usado" itemValue="Usado" />
+			</h:selectOneRadio>
+			<h:outputText value="Tempo de Uso" />
+			<h:inputText value="#{ItemBean.item.tempoUso}" />
+			<h:commandButton value="Gravar" action="#{ItemBean.actionSalvar}" />
+			<h:commandButton value="Cancelar" />
+		</h:panelGrid>
+</ui:define>
+</ui:composition>
 </html>

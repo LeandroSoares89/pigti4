@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputScript library="js" name="formatar.js" />
+</h:head>
+<h:body>
+	<h:form>
+
+		<div id="container">
+		<div class="cabecalho">
+			<ui:insert name="cabecalho">
+				<ui:include src="/cabecalho.xhtml" />
+			</ui:insert>
+		
+			<div class="menu">
+				<ui:insert name="menu">
+					<ui:include src="/menu.xhtml" />
+				</ui:insert>
+			</div>
+			</div>
+			<div class="principal">
+				<ui:insert name="principal" />
+			</div>
+			<div class="footer">
+				<ui:insert name="menu">
+					<ui:include src="/footer.xhtml" />
+				</ui:insert>
+			</div>
+		</div>
+
+	</h:form>
+</h:body>
+</html>

@@ -13,18 +13,19 @@ public class ItemDAO extends ConnectionFactory implements InterfaceItensDAO{
 	public void inserirItem(Item item) {
 		Connection conexao = null;
 		PreparedStatement psInsert = null;
-		String sql = "INSERT INTO patrimonio (nome, tipo_bem, condicao, vida_util, turno, data_compra, valor_compra, tempo_uso)"
-				+ " VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO patrimonio (nome, categoria, condicao, vida_util, data_compra, valor_compra, tempo_uso)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			conexao = openConnection();
 			psInsert = conexao.prepareStatement(sql);
 			psInsert.setString(1, item.getNome());
-			psInsert.setString(2, item.getCondicao());
-			psInsert.setInt(3, item.getVidaUtil());;
-			psInsert.setDate(4, new Date(item.getDataCompra().getTime()));
-			psInsert.setDouble(5, item.getValorCompra());
-			psInsert.setInt(6, item.getTempoUso());
+			psInsert.setString(2,item.getCategoria());
+			psInsert.setString(3, item.getCondicao());
+			psInsert.setInt(4, item.getVidaUtil());;
+			psInsert.setDate(5, new Date(item.getDataCompra().getTime()));
+			psInsert.setDouble(6, item.getValorCompra());
+			psInsert.setInt(7, item.getTempoUso());
 			psInsert.executeUpdate();
 		} catch (Exception e) {
 			System.err.println("----------------------");

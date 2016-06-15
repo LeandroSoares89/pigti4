@@ -9,11 +9,8 @@ public class ItemRN {
 	private ItemDAO itemDAO = new ItemDAO();
 	
 	
-	public String insertBem(Item item){
-		this.itemDAO.inserirItem(item);
-		
-		return null;
-		
+	public void insertBem(Item item){
+		this.itemDAO.inserirItem(item);			
 	}
 
 	public ItemDAO getItemDAO() {
