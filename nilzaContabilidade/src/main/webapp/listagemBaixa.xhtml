@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/layout.xhtml">
+	<ui:define name="principal">
+		<h:dataTable value="#{BeanItemBaixado.lsBaixados}" var="objbaixado">
+			<f:facet name="header">
+				<h:outputLabel value="Lista de Bens Cadastrados" />
+			</f:facet>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Código" />
+				</f:facet>
+				<h:outputText value="#{objbaixado.codigo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Nome Bem" />
+				</f:facet>
+				<h:outputText value="#{objbaixado.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Valor da Compra" />
+				</f:facet>
+				<h:outputText value="#{objbaixado.valorCompra}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="taxa Residual" />
+				</f:facet>
+				<h:outputText value="#{objbaixado.taxaResidual}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Valor Residual" />
+				</f:facet>
+				<h:outputText value="#{objbaixado.valorResidual}" />
+			</h:column>
+		</h:dataTable>
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -64,7 +64,14 @@
 				</f:facet>
 				<h:outputText value="#{objItem.tempoUso}" />
 			</h:column>
-
+<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Opções" />
+				</f:facet>
+				<h:commandButton value="baixar" action="#{ItemBean.actionBaixar}">
+				<f:setPropertyActionListener value="#{objItem}" target="#{ItemBean.item}"></f:setPropertyActionListener>
+				</h:commandButton>
+			</h:column>
 		</h:dataTable>
 	</ui:define>
 </ui:composition>

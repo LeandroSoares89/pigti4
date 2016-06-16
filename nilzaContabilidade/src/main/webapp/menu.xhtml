@@ -8,13 +8,13 @@
 
 <h:head></h:head>
 <h:body>
-<h:form>
+
 		<h:panelGrid columns="4">
-		<h:commandButton value="Home" action="index"/>
+		<h:commandButton value="Home" action="#{ItemBean.actionNovo}"/>
 			<h:commandButton value="Incluir Novo" />
-			<h:commandButton value="Listar Bens Cadastrados" action="listagemDeBens"/>
-			<h:commandButton value="Listar Bens Baixados" />
+			<h:commandButton value="Listar Bens Cadastrados" action="#{ItemBean.actionListar}"/>
+			<h:commandButton value="Listar Bens Baixados" action="#{BeanItemBaixado.actionSalvar}" />
 		</h:panelGrid>
-		</h:form>
+	
 </h:body>
 </html>

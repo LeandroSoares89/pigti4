@@ -1,8 +1,12 @@
 package br.com.nilzaContabilidade.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Item {
+public class Item  implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
 	private Integer codigo;
 	
 	public void setCodigo(Integer codigo) {

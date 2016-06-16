@@ -1,5 +1,6 @@
 package br.com.nilzaContabilidade.model;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -8,9 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 import br.com.nilzaContabilidade.util.ConnectionFactory;
 
-public class ItemDAO extends ConnectionFactory implements InterfaceItensDAO{
+public class ItemDAO extends ConnectionFactory implements InterfaceItensDAO, Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	public void inserirItem(Item item) {

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/layout.xhtml">
+	<ui:define name="principal">
+
+		<h:panelGrid columns="2">
+		<f:facet name="header">
+		<h:outputText value="Cadastro de Baixa"/>
+		</f:facet>
+		<h:outputText value="Nome do Bem" />
+			<h:outputText value="#{ItemBean.item.nome}"/>
+			<h:outputText value="Data da Venda" />
+			<h:inputText value="#{BeanItemBaixado.baixado.dataVenda}"  maxlength="10"
+				onkeypress="formatarData('##/##/####', this);">
+				<f:convertDateTime dateStyle="medium" />
+				</h:inputText>
+			<h:outputText value="turno" />
+			<h:selectOneMenu value="#{BeanItemBaixado.baixado.turno}" immediate="true">
+				<f:selectItem itemValue="1" itemLabel="1"  />
+				<f:selectItem itemValue="2" itemLabel="2" />
+				<f:selectItem itemValue="3" itemLabel="3" />
+			</h:selectOneMenu>
+			</h:panelGrid>
+			<h:panelGrid columns="2">
+			<h:outputText value="Valor da venda" />
+			<h:inputText value="#{BeanItemBaixado.baixado.valorVenda}" />
+			<h:outputText value="Taxa residual" />
+			<h:inputText value="#{BeanItemBaixado.baixado.taxaResidual}"/>
+			<h:commandButton value="Gravar" action="#{BeanItemBaixado.actionSalvar}" >
+		
+			</h:commandButton>
+			<h:commandButton value="Cancelar" />
+		</h:panelGrid>
+</ui:define>
+</ui:composition>
+</html>
