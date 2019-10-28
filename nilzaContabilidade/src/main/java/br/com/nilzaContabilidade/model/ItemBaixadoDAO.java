@@ -19,8 +19,8 @@ public class ItemBaixadoDAO extends ConnectionFactory implements Serializable{
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT codigo, nome, categoria, condicao, vida_util, data_compra, valor_compra, tempo_uso "
-				+ " FROM  patrimonio  ORDER BY codigo";
+		String sql = "SELECT codigo, nome, categoria, condicao, vida_util, data_compra, valor_compra, tempo_uso data_venda"
+				+ " FROM  patrimonio where data_venda is not null  ORDER BY codigo";
 
 		try {
 			conexao = openConnection();

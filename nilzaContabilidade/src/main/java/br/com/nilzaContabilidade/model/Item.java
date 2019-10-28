@@ -3,12 +3,14 @@ package br.com.nilzaContabilidade.model;
 import java.io.Serializable;
 import java.util.Date;
 
+
 public class Item  implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
-	private Integer codigo;
-	
+	private Integer codigo;	
+
+
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
@@ -25,7 +27,7 @@ public class Item  implements Serializable{
 	
 	private String condicao;
 	
-	private Integer TempoUso;
+	private Integer tempoUso;
 
 	public String getNome() {
 		return nome;
@@ -76,11 +78,11 @@ public class Item  implements Serializable{
 	}
 
 	public Integer getTempoUso() {
-		return TempoUso;
+		return tempoUso;
 	}
 
 	public void setTempoUso(Integer tempoUso) {
-		TempoUso = tempoUso;
+		this.tempoUso = tempoUso;
 	}
 
 	public Integer getCodigo() {
